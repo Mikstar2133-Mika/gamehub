@@ -1,0 +1,16 @@
+<!-- Favicon Version - einfacher für bessere Darstellung in kleiner Größe -->
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#a5a8ff"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Hintergrund -->
+  <rect width="32" height="32" rx="6" fill="#0d1117"/>
+  
+  <!-- Das M -->
+  <path d="M8 22 L8 10 L11 10 L16 17.5 L21 10 L24 10 L24 22 L21 22 L21 14 L17 20 L15 20 L11 14 L11 22 Z" 
+        fill="url(#faviconGradient)"/>
+</svg>

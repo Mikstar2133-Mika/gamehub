@@ -1,0 +1,10 @@
+@import url('../snake/snake.css');
+
+/* 2048-spezifische Anpassungen */
+#game-canvas {
+    background: #222b3a;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px #58a6ff33;
+    margin-bottom: 1.5rem;
+    display: block;
+}

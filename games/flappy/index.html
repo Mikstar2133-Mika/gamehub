@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird – mikajo.de</title>
+    <link rel="stylesheet" href="flappy.css">
+</head>
+<body>
+    <div id="background-animation"></div>
+    <header>
+        <div class="header-hub-box wide">
+            <div class="header-content-smooth">
+                <img src="../../logo.svg" alt="mikajo Logo" class="logo-smooth">
+                <div class="header-title-group">
+                    <h1 class="site-title">mikajo.de Game Hub</h1>
+                    <p class="site-subtitle">Flappy Bird – PC Edition</p>
+                </div>
+            </div>
+            <div class="page-switcher-bar">
+                <a href="../../index.html" class="footer-nav-link">← Zurück zum Game Hub</a>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <!-- Spiel Layout: Canvas groß + Sidebar -->
+        <div style="display:flex;gap:2rem;max-width:1600px;margin:0 auto;align-items:flex-start;">
+            
+            <!-- Hauptspiel-Bereich -->
+            <div style="flex:1;min-width:800px;">
+                <canvas id="game-canvas" width="1600" height="1000" style="background:#87ceeb;border-radius:18px;display:block;width:100%;height:auto;border:3px solid #58a6ff;box-shadow:0 8px 32px rgba(0,0,0,0.4);"></canvas>
+            </div>
+            
+            <!-- Sidebar mit Infos und Controls -->
+            <div style="flex:0 0 350px;background:linear-gradient(135deg, #21262d 0%, #30363d 100%);border:1.5px solid #58a6ff;border-radius:18px;padding:2rem;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+                
+                <!-- Header mit Icon -->
+                <div style="text-align:center;margin-bottom:2rem;">
+                    <div style="width:54px;height:54px;margin:auto;margin-bottom:1rem;">
+                        <svg id="flappy-emoji" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+                            <g id="bird-body">
+                                <ellipse cx="25" cy="25" rx="18" ry="14" fill="#ffd700">
+                                    <animate attributeName="cy" values="25;22;25" dur="0.8s" repeatCount="indefinite"/>
+                                </ellipse>
+                                <ellipse cx="20" cy="20" rx="8" ry="6" fill="#58a6ff">
+                                    <animate attributeName="ry" values="6;10;6" dur="0.4s" repeatCount="indefinite"/>
+                                    <animate attributeName="cy" values="20;17;20" dur="0.8s" repeatCount="indefinite"/>
+                                </ellipse>
+                                <polygon points="35,25 45,22 35,28" fill="#f85149">
+                                    <animate attributeName="points" values="35,25 45,22 35,28;35,22 45,19 35,25;35,25 45,22 35,28" dur="0.8s" repeatCount="indefinite"/>
+                                </polygon>
+                                <circle cx="30" cy="20" r="4" fill="#fff">
+                                    <animate attributeName="cy" values="20;17;20" dur="0.8s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="31" cy="19" r="2" fill="#181e2a">
+                                    <animate attributeName="cy" values="19;16;19" dur="0.8s" repeatCount="indefinite"/>
+                                </circle>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 style="color:#a5a8ff;margin:0 0 0.5rem 0;">Flappy Bird</h3>
+                    <p style="color:#8b949e;margin:0;font-size:0.9rem;">PC Edition</p>
+                </div>
+                
+                <!-- Schwierigkeit -->
+                <div style="margin-bottom:2rem;">
+                    <label for="difficulty-select" style="font-weight:600;color:#a5a8ff;display:block;margin-bottom:0.5rem;">Schwierigkeit:</label>
+                    <select id="difficulty-select" style="width:100%;font-size:1.1rem;padding:0.8rem;border-radius:12px;background:#181e2a;color:#a5a8ff;border:1.5px solid #58a6ff;">
+                        <option value="easy">🐣 Einfach</option>
+                        <option value="medium" selected>🐦 Mittel</option>
+                        <option value="hard">🦅 Schwer</option>
+                        <option value="extreme">💀 Extrem</option>
+                    </select>
+                </div>
+                
+                <!-- Score -->
+                <div style="background:linear-gradient(135deg, #161b22 0%, #21262d 100%);border:1.5px solid #30363d;border-radius:12px;padding:1.5rem;margin-bottom:2rem;text-align:center;">
+                    <div style="color:#58a6ff;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;">Aktuelle Punkte</div>
+                    <div id="score" style="color:#a5a8ff;font-size:2rem;font-weight:bold;">0</div>
+                    <hr style="border:none;border-top:1px solid #30363d;margin:1rem 0;">
+                    <div style="color:#f79000;font-size:1rem;font-weight:600;margin-bottom:0.3rem;">🏆 Highscore</div>
+                    <div id="highscore" style="color:#f79000;font-size:1.3rem;font-weight:bold;">0</div>
+                </div>
+                
+                <!-- Steuerung -->
+                <div style="background:linear-gradient(135deg, #0d1117 0%, #161b22 100%);border:1.5px solid #21262d;border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+                    <h4 style="color:#58a6ff;margin:0 0 1rem 0;font-size:1.1rem;">⌨️ Steuerung</h4>
+                    <div style="color:#8b949e;font-size:0.9rem;line-height:1.6;">
+                        <div>• <kbd style="background:#21262d;padding:2px 6px;border-radius:4px;color:#a5a8ff;">LEERTASTE</kbd> - Springen</div>
+                        <div>• <kbd style="background:#21262d;padding:2px 6px;border-radius:4px;color:#a5a8ff;">W</kbd> - Springen</div>
+                        <div>• <kbd style="background:#21262d;padding:2px 6px;border-radius:4px;color:#a5a8ff;">Mausklick</kbd> - Springen</div>
+                    </div>
+                </div>
+                
+                <!-- Buttons -->
+                <div style="display:flex;flex-direction:column;gap:1rem;">
+                    <button id="start-btn" class="play-btn available" style="width:100%;padding:1rem;font-size:1.2rem;font-weight:700;border-radius:12px;background:linear-gradient(135deg, #238636 0%, #2ea043 100%);color:#fff;border:none;cursor:pointer;transition:all 0.3s;">
+                        🎮 Neustart
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <div class="copyright-footer-box">
+        <span class="copyright-bar">&copy; 2025 mikajo.de</span>
+    </div>
+    <script src="flappy.js"></script>
+</body>
+</html>

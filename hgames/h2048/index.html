@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Touch – mikajo.de</title>
+    <link rel="stylesheet" href="h2048.css">
+</head>
+<body>
+    <div id="background-animation"></div>
+    <header>
+        <div class="header-hub-box wide">
+            <div class="header-content-smooth">
+                <img src="../../logo.svg" alt="mikajo Logo" class="logo-smooth">
+                <div class="header-title-group">
+                    <h1 class="site-title">mikajo.de Game Hub</h1>
+                    <p class="site-subtitle">2048 Touch – Mobile Edition</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="game-card" data-status="available" style="max-width:420px;margin:auto;">
+            <div class="card-icon" style="width:44px;height:44px;margin:auto;">
+                <!-- Animiertes 2048-Emoji als SVG, kompakt -->
+                <svg id="emoji-2048" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+                    <rect x="2" y="2" width="40" height="40" rx="10" fill="#ffd700">
+                        <animate attributeName="fill" values="#ffd700;#f85149;#ffd700" dur="1.2s" repeatCount="indefinite"/>
+                    </rect>
+                    <text x="22" y="28" text-anchor="middle" font-size="1.15em" font-family="Segoe UI,Arial" fill="#181e2a" font-weight="bold">2048
+                        <animate attributeName="fill" values="#181e2a;#fff;#181e2a" dur="1.2s" repeatCount="indefinite"/>
+                    </text>
+                </svg>
+            </div>
+            <h3>2048 Touch</h3>
+            <p>Steuere die Zahlen mit den Pfeiltasten! Für Smartphones optimiert.</p>
+            <canvas id="game-canvas" width="320" height="320" style="background:#181e2a;border-radius:14px;display:block;margin:1.2rem auto 0 auto;"></canvas>
+            <div id="touch-controls">
+                <button class="touch-btn" id="btn-up">▲</button>
+                <div style="display:flex;justify-content:center;gap:1.2rem;">
+                    <button class="touch-btn" id="btn-left">◀</button>
+                    <button class="touch-btn" id="btn-down">▼</button>
+                    <button class="touch-btn" id="btn-right">▶</button>
+                </div>
+            </div>
+            <div class="scorebar">Punkte: <span id="score">0</span></div>
+            <button id="start-btn" class="play-btn available" style="margin-top:1.2rem;">Neustart</button>
+        </div>
+        <div class="back-link">
+            <a href="../../hindex.html" class="play-btn" style="display:block;text-align:center;margin:2.2rem auto 0 auto;max-width:340px;font-size:1.18rem;font-weight:700;border-radius:18px;">Zurück zum Game Hub</a>
+        </div>
+    </main>
+    <div class="copyright-footer-box">
+        <span class="copyright-bar">&copy; 2025 mikajo.de</span>
+    </div>
+    <script src="h2048.js"></script>
+</body>
+</html>

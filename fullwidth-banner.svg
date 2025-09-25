@@ -1,0 +1,158 @@
+<!-- Vollbreiten animierter Banner für mikajo.de - ohne Text/Striche -->
+<svg width="100%" height="120" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" class="fullwidth-banner" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Hauptgradient für Banner-Hintergrund -->
+    <linearGradient id="fullBannerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.12">
+        <animate attributeName="stop-color" values="#58a6ff;#6bb3ff;#58a6ff" dur="15s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#79c0ff;stop-opacity:0.15">
+        <animate attributeName="stop-color" values="#79c0ff;#8cc9ff;#79c0ff" dur="15s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#a5a8ff;stop-opacity:0.12">
+        <animate attributeName="stop-color" values="#a5a8ff;#b8bbff;#a5a8ff" dur="15s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Wandernde Lichteffekte -->
+    <radialGradient id="wanderingLight1" cx="50%" cy="50%" r="25%">
+      <stop offset="0%" style="stop-color:#6bb3ff;stop-opacity:0.3"/>
+      <stop offset="70%" style="stop-color:#79c0ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-300 0;1500 0;-300 0" dur="25s" repeatCount="indefinite"/>
+    </radialGradient>
+    
+    <radialGradient id="wanderingLight2" cx="50%" cy="50%" r="20%">
+      <stop offset="0%" style="stop-color:#8cc9ff;stop-opacity:0.35"/>
+      <stop offset="60%" style="stop-color:#a5a8ff;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="1500 0;-300 0;1500 0" dur="20s" repeatCount="indefinite"/>
+    </radialGradient>
+    
+    <radialGradient id="wanderingLight3" cx="50%" cy="50%" r="30%">
+      <stop offset="0%" style="stop-color:#b8bbff;stop-opacity:0.25"/>
+      <stop offset="80%" style="stop-color:#6bb3ff;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-600 0;1800 0;-600 0" dur="30s" repeatCount="indefinite"/>
+    </radialGradient>
+    
+    <!-- Partikel Glow -->
+    <filter id="particleGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Welleneffekt -->
+    <filter id="waveDistortion" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence baseFrequency="0.02" numOctaves="3" result="wave">
+        <animate attributeName="baseFrequency" values="0.02;0.04;0.02" dur="8s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="wave" scale="5"/>
+    </filter>
+  </defs>
+  
+  <!-- Basis-Hintergrund -->
+  <rect width="1200" height="120" fill="url(#fullBannerGradient)" opacity="0.3"/>
+  
+  <!-- Wandernde Lichteffekte -->
+  <rect width="1200" height="120" fill="url(#wanderingLight1)" opacity="0.4"/>
+  <rect width="1200" height="120" fill="url(#wanderingLight2)" opacity="0.3"/>
+  <rect width="1200" height="120" fill="url(#wanderingLight3)" opacity="0.2"/>
+  
+  <!-- Dynamische Wellenformen -->
+  <path d="M0 60 Q300 40 600 60 T1200 60 L1200 120 L0 120 Z" fill="rgba(88, 166, 255, 0.1)" filter="url(#waveDistortion)">
+    <animate attributeName="d" values="M0 60 Q300 40 600 60 T1200 60 L1200 120 L0 120 Z;M0 60 Q300 80 600 60 T1200 60 L1200 120 L0 120 Z;M0 60 Q300 40 600 60 T1200 60 L1200 120 L0 120 Z" dur="6s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M0 40 Q400 20 800 40 T1200 40 L1200 0 L0 0 Z" fill="rgba(121, 192, 255, 0.08)" filter="url(#waveDistortion)">
+    <animate attributeName="d" values="M0 40 Q400 20 800 40 T1200 40 L1200 0 L0 0 Z;M0 40 Q400 60 800 40 T1200 40 L1200 0 L0 0 Z;M0 40 Q400 20 800 40 T1200 40 L1200 0 L0 0 Z" dur="8s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Schwebende Partikel-Gruppe 1 -->
+  <g opacity="0.6">
+    <circle cx="100" cy="30" r="2" fill="#58a6ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;20 -10;0 0" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="80" r="1.5" fill="#79c0ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-15 15;0 0" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="500" cy="25" r="2.5" fill="#a5a8ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;25 20;0 0" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="90" r="1.8" fill="#ff6b9d" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-20 -25;0 0" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="40" r="2.2" fill="#58a6ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;30 -15;0 0" dur="5.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="70" r="1.6" fill="#79c0ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-10 25;0 0" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Schwebende Partikel-Gruppe 2 (langsamere Bewegung) -->
+  <g opacity="0.4">
+    <circle cx="200" cy="50" r="1.2" fill="#a5a8ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-25 10;0 0" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="100" r="1.8" fill="#58a6ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;15 -30;0 0" dur="9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="15" r="1.4" fill="#ff6b9d" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-35 20;0 0" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="105" r="2" fill="#79c0ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;20 -20;0 0" dur="7.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="35" r="1.3" fill="#a5a8ff" filter="url(#particleGlow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-18 35;0 0" dur="8.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Rotierende Gaming-Symbole -->
+  <g transform-origin="150 60">
+    <animateTransform attributeName="transform" type="rotate" values="0;360" dur="20s" repeatCount="indefinite"/>
+    <polygon points="145,55 155,55 160,60 155,65 145,65 140,60" fill="rgba(88, 166, 255, 0.5)" filter="url(#particleGlow)"/>
+  </g>
+  
+  <g transform-origin="450 60">
+    <animateTransform attributeName="transform" type="rotate" values="360;0" dur="15s" repeatCount="indefinite"/>
+    <polygon points="446,56 454,56 457,60 454,64 446,64 443,60" fill="rgba(121, 192, 255, 0.6)" filter="url(#particleGlow)"/>
+  </g>
+  
+  <g transform-origin="750 60">
+    <animateTransform attributeName="transform" type="rotate" values="0;360" dur="25s" repeatCount="indefinite"/>
+    <polygon points="745,57 755,57 758,60 755,63 745,63 742,60" fill="rgba(165, 168, 255, 0.4)" filter="url(#particleGlow)"/>
+  </g>
+  
+  <g transform-origin="1050 60">
+    <animateTransform attributeName="transform" type="rotate" values="360;0" dur="18s" repeatCount="indefinite"/>
+    <polygon points="1046,58 1054,58 1056,60 1054,62 1046,62 1044,60" fill="rgba(255, 107, 157, 0.5)" filter="url(#particleGlow)"/>
+  </g>
+  
+  <!-- Subtile Energieströme -->
+  <path d="M0 20 Q200 10 400 20 T800 20 T1200 20" 
+        stroke="rgba(88, 166, 255, 0.3)" 
+        stroke-width="1" 
+        fill="none" 
+        filter="url(#particleGlow)">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="5s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M0 100 Q300 90 600 100 T1200 100" 
+        stroke="rgba(121, 192, 255, 0.4)" 
+        stroke-width="1.5" 
+        fill="none" 
+        filter="url(#particleGlow)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="6s" repeatCount="indefinite"/>
+  </path>
+</svg>

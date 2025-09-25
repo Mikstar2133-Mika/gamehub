@@ -1,0 +1,14 @@
+@import url('../snake/snake.css');
+
+/* Tetris-spezifische Anpassungen falls nötig */
+#tetris-container {
+    width: 320px;
+    height: 480px;
+    background: #181e2a;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px #58a6ff33;
+    margin: 1.2rem auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

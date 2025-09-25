@@ -1,0 +1,94 @@
+<!-- Mobile Banner für mikajo.de Game Hub Header -->
+<svg width="300" height="60" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg" class="header-banner-mobile">
+  <defs>
+    <!-- Mobile Banner Gradient -->
+    <linearGradient id="mobileBannerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.8">
+        <animate attributeName="stop-color" values="#58a6ff;#79c0ff;#a5a8ff;#ff6b9d;#58a6ff" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#79c0ff;stop-opacity:0.9">
+        <animate attributeName="stop-color" values="#79c0ff;#a5a8ff;#ff6b9d;#58a6ff;#79c0ff" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#a5a8ff;stop-opacity:0.8">
+        <animate attributeName="stop-color" values="#a5a8ff;#ff6b9d;#58a6ff;#79c0ff;#a5a8ff" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Mobile Sparkle Gradient -->
+    <linearGradient id="mobileSparkleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="45%" style="stop-color:#58a6ff;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#fff;stop-opacity:0.8"/>
+      <stop offset="55%" style="stop-color:#79c0ff;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-300 0;300 0;-300 0" dur="2.5s" repeatCount="indefinite"/>
+    </linearGradient>
+    
+    <!-- Mobile Glow Filter -->
+    <filter id="mobileGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Mobile Background -->
+  <rect width="300" height="60" rx="10" ry="10" fill="rgba(10, 14, 22, 0.9)" stroke="url(#mobileBannerGradient)" stroke-width="1.5"/>
+  
+  <!-- Mobile Gaming Pattern -->
+  <g opacity="0.08">
+    <rect x="15" y="12" width="6" height="6" fill="#58a6ff">
+      <animate attributeName="opacity" values="0.08;0.2;0.08" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="275" y="15" width="5" height="5" fill="#79c0ff">
+      <animate attributeName="opacity" values="0.08;0.25;0.08" dur="1.8s" repeatCount="indefinite" begin="0.5s"/>
+    </rect>
+    <rect x="280" y="40" width="4" height="4" fill="#a5a8ff">
+      <animate attributeName="opacity" values="0.08;0.18;0.08" dur="2.2s" repeatCount="indefinite" begin="1s"/>
+    </rect>
+  </g>
+  
+  <!-- Mobile Dynamic Line -->
+  <path d="M0 30 Q75 25 150 30 Q225 35 300 30" 
+        stroke="url(#mobileBannerGradient)" 
+        stroke-width="1.5" 
+        fill="none" 
+        filter="url(#mobileGlow)"
+        opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Mobile Text -->
+  <text x="150" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="url(#mobileBannerGradient)" filter="url(#mobileGlow)">
+    <tspan>MOBILE GAMING</tspan>
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Mobile Gaming Elements -->
+  <g transform-origin="50 30">
+    <animateTransform attributeName="transform" type="rotate" values="0;360" dur="12s" repeatCount="indefinite"/>
+    <polygon points="48,27 52,27 54,30 52,33 48,33 46,30" fill="#58a6ff" opacity="0.5" filter="url(#mobileGlow)"/>
+  </g>
+  
+  <g transform-origin="250 30">
+    <animateTransform attributeName="transform" type="rotate" values="360;0" dur="10s" repeatCount="indefinite"/>
+    <polygon points="248,28 252,28 253.5,30 252,32 248,32 246.5,30" fill="#79c0ff" opacity="0.6" filter="url(#mobileGlow)"/>
+  </g>
+  
+  <!-- Mobile Side Circles -->
+  <circle cx="25" cy="30" r="1.5" fill="none" stroke="#58a6ff" stroke-width="0.8" opacity="0.4">
+    <animate attributeName="r" values="1.5;2.5;1.5" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="275" cy="30" r="1.8" fill="none" stroke="#a5a8ff" stroke-width="0.8" opacity="0.5">
+    <animate attributeName="r" values="1.8;2.8;1.8" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Mobile Sparkle Lines -->
+  <line x1="0" y1="20" x2="300" y2="20" stroke="url(#mobileSparkleGradient)" stroke-width="0.8"/>
+  <line x1="0" y1="40" x2="300" y2="40" stroke="url(#mobileSparkleGradient)" stroke-width="0.8"/>
+</svg>

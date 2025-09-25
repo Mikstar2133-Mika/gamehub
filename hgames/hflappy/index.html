@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Touch – mikajo.de</title>
+    <link rel="stylesheet" href="hflappy.css">
+</head>
+<body>
+    <div id="background-animation"></div>
+    <header>
+        <div class="header-hub-box wide">
+            <div class="header-content-smooth">
+                <img src="../../logo.svg" alt="mikajo Logo" class="logo-smooth">
+                <div class="header-title-group">
+                    <h1 class="site-title">mikajo.de Game Hub</h1>
+                    <p class="site-subtitle">Flappy Bird Touch – Mobile Edition</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        
+        <!-- Fullscreen Mobile Canvas -->
+        <div class="mobile-game-container" style="width:100%;max-width:none;margin:0;padding:0;">
+            <canvas id="game-canvas" width="800" height="1000" style="background:#87ceeb;display:block;width:100vw;height:70vh;min-height:500px;border:none;touch-action:none;"></canvas>
+        </div>
+        
+        <!-- Controls unter dem Canvas -->
+        <div class="mobile-controls" style="padding:1rem;background:linear-gradient(135deg, #21262d 0%, #30363d 100%);border-top:2px solid #58a6ff;">
+            
+            <!-- Schwierigkeit -->
+            <div style="display:flex;justify-content:center;align-items:center;gap:1rem;margin-bottom:1rem;">
+                <label for="difficulty-select" style="font-weight:600;color:#a5a8ff;font-size:1rem;">Schwierigkeit:</label>
+                <select id="difficulty-select" style="font-size:1rem;padding:0.5rem 1rem;border-radius:8px;background:#181e2a;color:#a5a8ff;border:1.5px solid #58a6ff;min-width:120px;">
+                    <option value="easy">🐣 Einfach</option>
+                    <option value="medium" selected>🐦 Mittel</option>
+                    <option value="hard">🦅 Schwer</option>
+                    <option value="extreme">💀 Extrem</option>
+                </select>
+            </div>
+            
+            <!-- Score Display -->
+            <div class="scorebar" style="margin-bottom:1.5rem;font-size:1.1rem;">
+                Punkte: <span id="score">0</span> | 🏆 Highscore: <span id="highscore">0</span>
+            </div>
+            
+            <!-- Game Info -->
+            <div style="text-align:center;margin-bottom:1.5rem;">
+                <div style="font-size:2rem;margin-bottom:0.5rem;">🐦</div>
+                <h3 style="color:#a5a8ff;margin:0 0 0.5rem 0;font-size:1.4rem;">Flappy Bird Touch</h3>
+                <p style="color:#8b949e;margin:0;font-size:1rem;">Tippe überall auf den Bildschirm zum Springen!</p>
+            </div>
+            
+            <!-- Touch Instructions -->
+            <div style="background:linear-gradient(135deg, #0d1117 0%, #161b22 100%);border:1.5px solid #21262d;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;text-align:center;">
+                <div style="font-size:3rem;margin-bottom:0.5rem;">👆</div>
+                <div style="color:#58a6ff;font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;">Touch-Steuerung</div>
+                <div style="color:#8b949e;font-size:1rem;line-height:1.5;">
+                    Tippe <strong>überall</strong> auf das Spielfeld<br>
+                    um den Vogel springen zu lassen!
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div style="display:flex;gap:1rem;">
+                <button id="start-btn" class="play-btn available" style="flex:1;font-size:1.1rem;font-weight:700;border-radius:12px;padding:1rem;background:linear-gradient(135deg, #238636 0%, #2ea043 100%);color:#fff;border:none;">� Neustart</button>
+            </div>
+        </div>
+        
+        <div class="back-link">
+            <a href="../../hindex.html" class="play-btn" style="display:block;text-align:center;margin:2.2rem auto 0 auto;max-width:340px;font-size:1.18rem;font-weight:700;border-radius:18px;">Zurück zum Game Hub</a>
+        </div>
+    </main>
+    <div class="copyright-footer-box">
+        <span class="copyright-bar">&copy; 2025 mikajo.de</span>
+    </div>
+    <script src="hflappy.js"></script>
+</body>
+</html>

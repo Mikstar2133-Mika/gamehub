@@ -1,0 +1,80 @@
+/* Flappy Bird CSS - Einheitliches Design */
+@import url('../../style.css');
+
+/* Spezifische Anpassungen für Flappy Bird */
+.game-card {
+    background: linear-gradient(135deg, #21262d 0%, #30363d 100%);
+    border: 1.5px solid #58a6ff;
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(88,166,255,0.2);
+    border-color: #79c0ff;
+}
+
+.scorebar {
+    background: linear-gradient(135deg, #21262d 0%, #30363d 100%);
+    border: 1.5px solid #58a6ff;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    margin: 1.2rem auto 0 auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #a5a8ff;
+    max-width: 500px;
+}
+
+#game-canvas {
+    border: 3px solid #58a6ff;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    border-radius: 18px;
+    width: 100%;
+    height: auto;
+    max-width: 1600px;
+    background: #87ceeb;
+}
+
+#game-canvas:hover {
+    border-color: #79c0ff;
+    box-shadow: 0 10px 40px rgba(88,166,255,0.5);
+}
+
+/* Button Hover Effects */
+.play-btn:hover, button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive für kleinere Bildschirme */
+@media (max-width: 1200px) {
+    main .container > div {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    main .container > div > div:last-child {
+        flex: none !important;
+        max-width: 600px !important;
+        width: 100% !important;
+    }
+}
+
+/* Animationen entfernt - kein Canvas-Wackeln mehr */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-card {
+        padding: 1.5rem;
+    }
+    
+    #game-canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
